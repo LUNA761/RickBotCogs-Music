@@ -10,7 +10,7 @@
       "client_secret": "CLIENT_SECRET"
     },
     "embeds": {
-      "color": 0x2F3136
+      "color": "0x2F3136"
     }
   }
 }
