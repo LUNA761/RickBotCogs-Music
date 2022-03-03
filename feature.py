@@ -16,7 +16,7 @@ from async_timeout import timeout
 import discord
 from discord.ext import commands
 
-import internal
+import helpers as internal
 
 youtube_dl.utils.bug_reports_message = lambda: ''
 
