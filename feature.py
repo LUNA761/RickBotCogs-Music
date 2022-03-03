@@ -16,7 +16,7 @@ from async_timeout import timeout
 import discord
 from discord.ext import commands
 
-import supreme
+import internal
 
 youtube_dl.utils.bug_reports_message = lambda: ''
 
@@ -459,7 +459,7 @@ class Music(commands.Cog):
 
                 async with ctx.typing():
                     songs_queued = 0
-                    for url in supreme.Spotify.get_youtube_urls(_url):
+                    for url in internal.SpotifyGenerator.get_youtube_urls(_url):
                         try:
                             source = await YTDLSource.create_source(ctx, url, loop=self.client.loop)
                         except YTDLError as e:
@@ -476,7 +476,7 @@ class Music(commands.Cog):
 
             async with ctx.typing():
                 _url = re.search("(?P<url>https?://[^\s]+)", search).group("url")
-                urls = supreme.Spotify.get_youtube_urls(_url)
+                urls = internal.Spotify.get_youtube_urls(_url)
 
                 if len(urls) == 0:
                     supreme.ereply(ctx, "No songs could be found.")
